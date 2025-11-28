@@ -14,6 +14,16 @@ class FilmController extends Controller
         return $films;
     }
     /**
+     * Number films from storage
+     */
+    public function countFilms() {
+        $films = FilmController::readFilms();
+        $number = count($films);
+        return view('count', [
+        'number' => $number 
+    ]);
+    }
+    /**
      * List films older than input year 
      * if year is not infomed 2000 year will be used as criteria
      */
