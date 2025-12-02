@@ -105,7 +105,7 @@ class FilmController extends Controller
 
         //list based on year informed
         foreach ($films as $film) {
-            if ((!is_null($year)) && $film['year'] == $year){
+            if ($film['year'] == $year){
                 $title = "Listado de todas las pelis filtrado x año";
                 $films_filtered[] = $film;
             }
