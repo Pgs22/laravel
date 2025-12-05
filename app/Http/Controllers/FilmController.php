@@ -33,11 +33,11 @@ class FilmController extends Controller
         $title = "Listado de todas las pelis";
         $films = FilmController::readFilms();
 
-        //if year and genre are null
-        if (is_null($duration) && is_null($country))
+        //if duration and country are null
+        /*if (is_null($duration) && is_null($country))
             return view('films.list', ["films" => $films, "title" => $title]);
-
-        //list based on year or genre informed
+*/
+        //list based on duration or country informed
         foreach ($films as $film) {
             if ((!is_null($duration) && is_null($country)) && $film['duration'] == $duration){
                 $title = "Listado de todas las pelis filtrado x duracion";
