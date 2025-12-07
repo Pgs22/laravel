@@ -72,30 +72,10 @@ class FilmController extends Controller
         $title = "Listado de todas las pelis";
         $films = FilmController::readFilms();
 
-        /*
-        //if year and genre are null
-        if (is_null($year) && is_null($genre))
-            return view('films.list', ["films" => $films, "title" => $title]);
-        */
         //if year + genre + country + durantion are null
         if (is_null($year) && is_null($genre) && is_null($country) && is_null($duration))
             return view('films.list', ["films" => $films, "title" => $title]);
 
-        /* 
-        //list based on year or genre informed
-        foreach ($films as $film) {
-            if ((!is_null($year) && is_null($genre)) && $film['year'] == $year){
-                $title = "Listado de todas las pelis filtrado x año";
-                $films_filtered[] = $film;
-            }else if((is_null($year) && !is_null($genre)) && strtolower($film['genre']) == strtolower($genre)){
-                $title = "Listado de todas las pelis filtrado x categoria";
-                $films_filtered[] = $film;
-            }else if(!is_null($year) && !is_null($genre) && strtolower($film['genre']) == strtolower($genre) && $film['year'] == $year){
-                $title = "Listado de todas las pelis filtrado x categoria y año";
-                $films_filtered[] = $film;
-            }
-        }
-        */
         //list based on year or genre or country or duration informed
         foreach ($films as $film) {
             if ((!is_null($year) && is_null($genre) && is_null($country) && is_null($duration)) && 
