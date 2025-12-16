@@ -34,9 +34,11 @@ Route::middleware('year')->prefix('filmout')->group(function() {
 });
 
 //Creamos nueva ruta para el formulario
-Route::prefix('filmin')->group(callback: function () : void {
-    // La ruta POST para crear una película
-    Route::post('/film', [FilmController::class, 'createFilm'])->name('film.create');
+Route::middleware('ValidateUrl')->group(function() {
+    Route::prefix('filmin')->group(function () {
+        // La ruta POST para crear una película
+        Route::post('/film', [FilmController::class, 'createFilm'])->name('film.create');
+    });
 });
 
 
