@@ -39,11 +39,6 @@ Route::prefix('filmin')->group(function () {
     Route::post('/film', [FilmController::class, 'createFilm'])->name('film.create');
 });
 
-//Creamos nueva ruta para el formulario
-Route::prefix('filmin')->group(callback: function () : void {
-    // La ruta POST para crear una película
-    Route::post('/film', [FilmController::class, 'createFilm'])->name('film.create');
-});
 
 
 
