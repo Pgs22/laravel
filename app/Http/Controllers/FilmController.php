@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class FilmController extends Controller
 {
@@ -218,5 +219,12 @@ class FilmController extends Controller
             $title = "Listado de todas las pelis ordenadas x año";
         }
         return view("films.list", ["films" => $films_filtered, "title" => $title]);
-    } 
+    }
+
+    /**
+     * Definimos función para probar el midleware
+     */
+    public function createFilm(Request $request) {
+        return "¡Perfecto! Has pasado el middleware con éxito y se puede crear la peli";
+    }
 }  
